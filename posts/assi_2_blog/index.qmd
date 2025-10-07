@@ -26,15 +26,43 @@ But what if we could understand how nitrate changes just by watching a few key s
 That’s exactly what a recent study explored: whether smart modelling and a few well-chosen measurements could explain nitrate dynamics almost perfectly — and do it affordably.
 
 # Seeing Patterns Beneath the Surface {#Analysis}
-This blog is based on the study @paper, which provides the main foundation for the discussion here. The analysis draws on data from @neondata, collected between 2018 and 2019 at three NEON river sites in Colorado, Alaska, and Virginia.
+This blog builds on the study @paper, which provides the foundation for the discussion here. The analysis draws on data from @neondata, collected between 2018 and 2019 at three NEON river sites in Colorado, Alaska, and Virginia.
 
-Using a combination of GAM (Generalized Additive Models) and GAMM (which incorporates temporal correlation),
-the researchers developed a modelling framework that was able to explain nearly 99% of the variation in nitrate concentration.
-The result is both methodologically elegant and practically efficient, showing how relatively simple models can capture complex biogeochemical processes with remarkable precision.
+## Understanding how the model works
 
-That’s nearly perfect — but what’s even more interesting is how it worked.
+To understand the study’s key insight, we first need to look at how its model works. When studying nitrate changes in rivers, we’re dealing with data that are both nonlinear and temporal — relationships that bend and fluctuate over time. A simple linear regression can’t capture both at once. To bridge that gap, the researchers built a two-step framework using GAM and GAMM, which together reveal smooth environmental patterns while accounting for time dependence.
 
-Across all sites, five water-quality variables consistently told the story, as shown in the following table (@tbl-water-variables) which presents their specific meanings.
+The first layer, a GAM (Generalized Additive Model), replaces straight-line predictors with flexible smooth functions.
+
+$$
+\text{Nitrate}_t = \beta_0 + s_1(\text{Temp}_t) + s_2(\text{Cond}_t) + s_3(\text{DO}_t)
++ s_4(\text{Turb}_t) + s_5(\text{Elev}_t) + \varepsilon_t
+$$
+
+To capture short-term memory in the data, the second layer adds a time-series component — the GAMM (Generalized Additive Mixed Model):
+
+$$
+\text{Nitrate}_t = \beta_0 + \sum_i s_i(X_{i,t}) + \phi\,\text{Nitrate}_{t-1} + \varepsilon_t
+$$
+
+This autoregressive term ϕ corrects for temporal autocorrelation, ensuring that the model respects how today’s water chemistry depends on yesterday’s. Together, these two parts make the framework both flexible and robust.
+
+Together, these two components form the core logic of the framework — but the model’s strength also comes from how carefully it was designed and validated across sites.
+
+## Key Technical Details
+
+Three design choices make this modelling framework both reliable and transferable.
+First, the authors validated their models across sites — training on one river and testing on the others. This cross-site validation confirmed that the model’s predictive accuracy holds under different climatic and land-use conditions.
+
+Second, they filtered variables for collinearity, excluding measures such as pH, fDOM, and discharge to avoid redundancy. This ensured that each remaining variable captured distinct physical or chemical information rather than overlapping effects.
+
+Finally, the model accounted for temporal autocorrelation using an AR(1) structure, where each 15-minute observation was partly informed by the previous one. This step allowed the model to reflect short-term persistence in water chemistry and helped raise its explanatory power to 99%.
+
+## What the model reveals
+
+Using this combined GAM–GAMM approach, the researchers explained nearly 99% of the variation in nitrate concentration. The result is methodologically elegant yet practically efficient — showing that relatively simple models, when properly structured, can capture complex biogeochemical dynamics with impressive precision.
+
+Across all sites, five water-quality variables consistently told the story, as shown in the following @tbl-water-variables which presents their specific meanings.
 
 <div style="text-align: center;">
 <div style="display: inline-block; text-align: left;">

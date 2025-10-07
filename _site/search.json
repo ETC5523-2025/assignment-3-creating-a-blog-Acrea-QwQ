@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ETC5523 Blog Assessment",
+    "section": "",
+    "text": "作业2的博客标题\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\nXingyu Wang\n\n\n\n\n\n\n\n\n\n\n\n\n示例的博客标题\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\nXingyu Wang\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am currently studying for a Master of Business Data Analytics at the Faculty of Business and Economics, Monash University. I am particularly interested in machine learning and predictive modeling.\nThroughout my studies, I have developed skills in using R and tools such as tidyverse for data cleaning and wrangling, exploratory data analysis, modeling, and visualization, and I use Quarto to write analytical reports. I also hope to further explore advanced topics such as machine learning and automated analytics to enhance my modeling and interpretive abilities.\nI believe that learning data analysis is not only about acquiring technical skills, but also about developing a rational and objective way to understand data and the phenomena it represents. Through continuous practice, I aim to strengthen my ability in data exploration and visualization."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "示例的博客标题",
+    "section": "",
+    "text": "这里放主页面显示出来的导语\n\n正文在这里可以的"
+  },
+  {
+    "objectID": "posts/assi_2_blog/index.html",
+    "href": "posts/assi_2_blog/index.html",
+    "title": "作业2的博客标题",
+    "section": "",
+    "text": "这里放主页面显示出来的导语2\n这里是不是应该有点儿正文。"
+  }
+]

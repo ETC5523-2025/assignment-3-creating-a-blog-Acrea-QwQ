@@ -1,0 +1,21 @@
+/* css styles */
+.navbar-dark, .quarto-title-banner {
+  background-color: #006DAE;
+}
+
+body {
+  background-color: #FFFFF0;
+  color: #333333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  color: #FA8072;
+}
+
+p {
+  text-align: left;
+  line-height: 1.6;
+  margin: 0 auto 1.5em;
+  max-width: 700px;
+}

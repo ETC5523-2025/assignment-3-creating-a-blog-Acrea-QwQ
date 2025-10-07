@@ -1,13 +1,22 @@
 ---
-title: "About"
-image: profile.jpg
+title: "Xingyu Wang"
+image: photo/profile.jpg
 about:
   template: jolla
   links:
     - icon: github
       text: Github
-      href: https://github.com/etc5523-2022
+      href: https://github.com/Acrea-QwQ
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/%E6%98%9F%E8%AF%AD-%E7%8E%8B-31b7a9388/
 
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+I am currently studying for a Master of Business Data Analytics at the Faculty of Business and Economics, Monash University. I am particularly interested in machine learning and predictive modeling.
+
+Throughout my studies, I have developed skills in using R and tools such as tidyverse for data cleaning and wrangling, exploratory data analysis, modeling, and visualization, and I use Quarto to write analytical reports. I also hope to further explore advanced topics such as machine learning and automated analytics to enhance my modeling and interpretive abilities.
+
+I believe that learning data analysis is not only about acquiring technical skills, but also about developing a rational and objective way to understand data and the phenomena it represents. Through continuous practice, I aim to strengthen my ability in data exploration and visualization.
+
+

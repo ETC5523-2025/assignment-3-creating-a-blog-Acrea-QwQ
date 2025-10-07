@@ -1,0 +1,99 @@
+---
+title: "Listening to Rivers Through Data"
+author: "Xingyu Wang"
+date: "2025-10-10"
+categories: [blog]
+---
+
+```{r}
+#| include: false
+library(knitr)
+library(here)
+```
+
+Exploring how a handful of variables can tell the story of a river’s changing chemistry.
+
+![Source: Julie rubacha/Shutterstock.com](/photo/river.jpg){fig-align="center"}
+
+# When Rivers Tell Stories: What Controls Nitrate Levels? {#sec-ProblemDescription}
+
+If you’ve ever stood by a river and wondered how clean that water really is — you’re not alone. Nitrate, a common compound found in fertilizers, quietly flows through rivers around the world. When its levels get too high, ecosystems suffer and water treatment costs soar.
+
+Traditionally, tracking nitrate means sending people out to collect water samples, shipping them to labs, and waiting for results. It’s slow, costly, and often misses the real-time ups and downs that matter most.
+
+But what if we could understand how nitrate changes just by watching a few key signals — like temperature or water clarity — from sensors already sitting in the river?
+
+That’s exactly what a recent study explored: whether smart modelling and a few well-chosen measurements could explain nitrate dynamics almost perfectly — and do it affordably.
+
+# Seeing Patterns Beneath the Surface {#Analysis}
+This blog is based on the study @paper, which provides the main foundation for the discussion here. The analysis draws on data from @neondata, collected between 2018 and 2019 at three NEON river sites in Colorado, Alaska, and Virginia.
+
+Using a combination of GAM (Generalized Additive Models) and GAMM (which incorporates temporal correlation),
+the researchers developed a modelling framework that was able to explain nearly 99% of the variation in nitrate concentration.
+The result is both methodologically elegant and practically efficient, showing how relatively simple models can capture complex biogeochemical processes with remarkable precision.
+
+That’s nearly perfect — but what’s even more interesting is how it worked.
+
+Across all sites, five water-quality variables consistently told the story, as shown in the following table (@tbl-water-variables) which presents their specific meanings.
+
+<div style="text-align: center;">
+<div style="display: inline-block; text-align: left;">
+
+**🌡 Temperature**  
+**🌫 Turbidity**  
+**⚡ Conductivity**  
+**💨 Dissolved oxygen**  
+**🌊 Surface water elevation**
+
+</div>
+</div>
+
+```{r}
+#| echo: false
+#| tbl-cap: "Key water-quality variables and why they matter for nitrate analysis"
+#| label: tbl-water-variables
+
+knitr::kable(
+  data.frame(
+    Variable = c("Temperature","Turbidity","Conductivity","Dissolved Oxygen","Surface Water Elevation"),
+    Meaning = c(
+      "Water warmth",
+      "Water cloudiness",
+      "Ability to conduct electricity",
+      "Oxygen level in water",
+      "River height"
+    ),
+    WhyItMatters = c(
+      "Affects biological activity and nitrate conversion rates.",
+      "Indicates sediment and nutrient presence; higher turbidity often means more suspended particles that carry nitrate.",
+      "Reflects dissolved ions and materials in water, which often correlate with nutrient loads.",
+      "Related to microbial processes that consume or transform nitrate.",
+      "Influences flow, dilution, and mixing, which affect nitrate concentration."
+    )
+  ))
+
+```
+
+
+Even though these five factors mattered everywhere, their influence varied from site to site. For instance, in one river, short-term memory — the river’s own recent history — played a big role; in another, the physical conditions dominated.
+
+In other words, rivers share some “universal rules,” but each has its own accent. @fig-Variable_importance shows how each variable contributes differently across the three sites. At Arikaree, for instance, the autoregressive term accounts for roughly 25% of the variation in nitrate, whereas at Lewis Run, all five variables play a substantial role.
+This contrast highlights that reliable monitoring depends not only on the common drivers shared across rivers, but also on local conditions that shape how each variable matters.
+Overall, these results illustrate that while some patterns are universal, local context can strongly influence the relative importance of each factor.
+
+```{r}
+#| echo: false
+#| label: fig-Variable_importance
+#| fig-cap: "Five water-quality variables explain nitrate variation at three NEON river sites (2018–2019). At Lewis Run, all exceed 10%, conductivity >15%. Each GAMM explains about 99% of total deviance across sites (Reproduced from @paper)."
+knitr::include_graphics(here::here("photo/fig1.jpg"))
+```
+
+# Smarter Monitoring, Better Decisions {#Conclusion}
+
+The main takeaway is clear: it is not necessary to measure every variable at every site at all times.
+
+By concentrating monitoring efforts on a small set of key indicators — specifically temperature, turbidity, conductivity, dissolved oxygen, and water level — environmental agencies can develop monitoring programs that are both cost-effective and high-frequency. Such programs are capable of capturing the dynamic behavior of rivers with sufficient accuracy, without expending resources on less informative measurements.
+
+Now, we can finally return to the question in @sec-ProblemDescription — and see that a relatively small set of well-chosen measurements is indeed enough to reveal the patterns that govern nitrate dynamics.
+
+In a context of limited budgets and increasing environmental pressures, this approach represents an efficient balance between scientific rigor and practical feasibility. It allows agencies to maintain reliable oversight of water quality while directing resources where they have the greatest impact, contributing both to sustainable management and to informed, data-driven decision-making.

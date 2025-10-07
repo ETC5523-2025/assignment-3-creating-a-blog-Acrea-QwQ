@@ -1,17 +1,21 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "blog-template"
+  title: "Noob’s Site Diary"
   navbar:
     right:
-      - about.qmd
-      - icon: github
-        href: https://github.com/etc5523-2022
+      - text: "About"
+        icon: person
+        href: about.qmd
+      - text: "Github"
+        icon: github
+        href: https://github.com/Acrea-QwQ
 format:
   html:
-    theme: cosmo
+    theme: yeti
     css: styles.css
-
+bibliography: reference.bib
 
 

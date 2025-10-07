@@ -21,14 +21,18 @@ p {
 }
 
 table {
-   width: 90%;                     /* 宽度适中 */
-  margin: 1.5em auto;             /* 上下留白，居中 */
-  border-collapse: separate;      /* 分离边框，更轻松的感觉 */
-  border-spacing: 0;              /* 单元格间距为 0 */
-  background-color: #ffffff;      /* 白底 */
-  border-radius: 8px;             /* 圆角边框 */
-  overflow: hidden;               /* 保证圆角效果 */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  width: 90%;
+  margin: 1.5em auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #F2F2FF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+table tr:nth-child(even) td {
+  background-color: #F2FFFF;
 }
 
 table + p {

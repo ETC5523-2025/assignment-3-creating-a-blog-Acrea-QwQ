@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "posts/assi_2_blog/index.html",
+    "href": "posts/assi_2_blog/index.html",
+    "title": "Listening to Rivers Through Data",
+    "section": "",
+    "text": "Exploring how a handful of variables can tell the story of a river’s changing chemistry."
+  },
+  {
+    "objectID": "posts/assi_2_blog/index.html#understanding-how-the-model-works",
+    "href": "posts/assi_2_blog/index.html#understanding-how-the-model-works",
+    "title": "Listening to Rivers Through Data",
+    "section": "Understanding how the model works",
+    "text": "Understanding how the model works\nTo understand the study’s key insight, we first need to look at how its model works. When studying nitrate changes in rivers, we’re dealing with data that are both nonlinear and temporal — relationships that bend and fluctuate over time. A simple linear regression can’t capture both at once. To bridge that gap, the researchers built a two-step framework using GAM and GAMM, which together reveal smooth environmental patterns while accounting for time dependence.\nThe first layer, a GAM (Generalized Additive Model), replaces straight-line predictors with flexible smooth functions.\n\\[\n\\text{Nitrate}_t = \\beta_0 + s_1(\\text{Temp}_t) + s_2(\\text{Cond}_t) + s_3(\\text{DO}_t)\n+ s_4(\\text{Turb}_t) + s_5(\\text{Elev}_t) + \\varepsilon_t\n\\]\nTo capture short-term memory in the data, the second layer adds a time-series component — the GAMM (Generalized Additive Mixed Model):\n\\[\n\\text{Nitrate}_t = \\beta_0 + \\sum_i s_i(X_{i,t}) + \\phi\\,\\text{Nitrate}_{t-1} + \\varepsilon_t\n\\]\nThis autoregressive term ϕ corrects for temporal autocorrelation, ensuring that the model respects how today’s water chemistry depends on yesterday’s. Together, these two parts make the framework both flexible and robust.\nTogether, these two components form the core logic of the framework — but the model’s strength also comes from how carefully it was designed and validated across sites."
+  },
+  {
+    "objectID": "posts/assi_2_blog/index.html#key-technical-details",
+    "href": "posts/assi_2_blog/index.html#key-technical-details",
+    "title": "Listening to Rivers Through Data",
+    "section": "Key Technical Details",
+    "text": "Key Technical Details\nThree design choices make this modelling framework both reliable and transferable. First, the authors validated their models across sites — training on one river and testing on the others. This cross-site validation confirmed that the model’s predictive accuracy holds under different climatic and land-use conditions.\nSecond, they filtered variables for collinearity, excluding measures such as pH, fDOM, and discharge to avoid redundancy. This ensured that each remaining variable captured distinct physical or chemical information rather than overlapping effects.\nFinally, the model accounted for temporal autocorrelation using an AR(1) structure, where each 15-minute observation was partly informed by the previous one. This step allowed the model to reflect short-term persistence in water chemistry and helped raise its explanatory power to 99%."
+  },
+  {
+    "objectID": "posts/assi_2_blog/index.html#what-the-model-reveals",
+    "href": "posts/assi_2_blog/index.html#what-the-model-reveals",
+    "title": "Listening to Rivers Through Data",
+    "section": "What the model reveals",
+    "text": "What the model reveals\nUsing this combined GAM–GAMM approach, the researchers explained nearly 99% of the variation in nitrate concentration. The result is methodologically elegant yet practically efficient — showing that relatively simple models, when properly structured, can capture complex biogeochemical dynamics with impressive precision.\nAcross all sites, five water-quality variables consistently told the story, as shown in the following Table 1 which presents their specific meanings.\n\n\n🌡 Temperature\n🌫 Turbidity\n⚡ Conductivity\n💨 Dissolved oxygen\n🌊 Surface water elevation\n\n\n\n\n\n\nTable 1: Key water-quality variables and why they matter for nitrate analysis\n\n\n\n\n\n\n\n\n\n\n\nVariable\nMeaning\nWhyItMatters\n\n\n\n\nTemperature\nWater warmth\nAffects biological activity and nitrate conversion rates.\n\n\nTurbidity\nWater cloudiness\nIndicates sediment and nutrient presence; higher turbidity often means more suspended particles that carry nitrate.\n\n\nConductivity\nAbility to conduct electricity\nReflects dissolved ions and materials in water, which often correlate with nutrient loads.\n\n\nDissolved Oxygen\nOxygen level in water\nRelated to microbial processes that consume or transform nitrate.\n\n\nSurface Water Elevation\nRiver height\nInfluences flow, dilution, and mixing, which affect nitrate concentration.\n\n\n\n\n\n\n\n\nEven though these five factors mattered everywhere, their influence varied from site to site. For instance, in one river, short-term memory — the river’s own recent history — played a big role; in another, the physical conditions dominated.\nIn other words, rivers share some “universal rules,” but each has its own accent. Figure 1 shows how each variable contributes differently across the three sites. At Arikaree, for instance, the autoregressive term accounts for roughly 25% of the variation in nitrate, whereas at Lewis Run, all five variables play a substantial role. This contrast highlights that reliable monitoring depends not only on the common drivers shared across rivers, but also on local conditions that shape how each variable matters. Overall, these results illustrate that while some patterns are universal, local context can strongly influence the relative importance of each factor.\n\n\n\n\n\n\n\n\nFigure 1: Five water-quality variables explain nitrate variation at three NEON river sites (2018–2019). At Lewis Run, all exceed 10%, conductivity &gt;15%. Each GAMM explains about 99% of total deviance across sites (Reproduced from Kermorvant et al. (2023))."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Xingyu Wang",
+    "section": "",
+    "text": "I am currently studying for a Master of Business Data Analytics at the Faculty of Business and Economics, Monash University. I am particularly interested in machine learning and predictive modeling.\nThroughout my studies, I have developed skills in using R and tools such as tidyverse for data cleaning and wrangling, exploratory data analysis, modeling, and visualization, and I use Quarto to write analytical reports. I also hope to further explore advanced topics such as machine learning and automated analytics to enhance my modeling and interpretive abilities.\nI believe that learning data analysis is not only about acquiring technical skills, but also about developing a rational and objective way to understand data and the phenomena it represents. Through continuous practice, I aim to strengthen my ability in data exploration and visualization."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Noob HOME Base",
+    "section": "",
+    "text": "Listening to Rivers Through Data\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\nXingyu Wang\n\n\n\n\n\n\nNo matching items"
+  }
+]
